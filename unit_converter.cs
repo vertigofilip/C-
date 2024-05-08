@@ -11,103 +11,103 @@ public class Program
         System.Console.WriteLine("7 - milimetre");
         System.Console.WriteLine("8 - nautical mile");
         System.Console.WriteLine("9 - mile");
-        System.Console.WriteLine("10 - furlong");
-        System.Console.WriteLine("11 - rod");
-        System.Console.WriteLine("12 - fathom");
-        System.Console.WriteLine("13 - yard");
-        System.Console.WriteLine("14 - foot");
-        System.Console.WriteLine("15 - inch");
+        System.Console.WriteLine("a - furlong");
+        System.Console.WriteLine("b - rod");
+        System.Console.WriteLine("c - fathom");
+        System.Console.WriteLine("d - yard");
+        System.Console.WriteLine("e - foot");
+        System.Console.WriteLine("f - inch");
     }
-    public static int convertToIntermediate(char from, int value)
+    public static double convertToIntermediate(char from, double value)
     {
-        switch(from)
+        switch (from)
         {
             case '1':
-            return value * 1000;
+                return value * 1000;
             case '2':
-            return value * 100;
+                return value * 100;
             case '3':
-            return value * 10;
+                return value * 10;
             case '4':
-            return value * 1;
+                return value * 1;
             case '5':
-            return value * 0.1;
+                return value * 0.1;
             case '6':
-            return value * 0.01;
+                return value * 0.01;
             case '7':
-            return value * 0.001
+                return value * 0.001;
             case '8':
-            return value * 1852;
+                return value * 1852;
             case '9':
-            return value * 1609;
-            case '10':
-            return value * 201;
-            case '11':
-            return value * 5.829;
-            case '12':
-            return value * 1.829;
-            case '13':
-            return value * 0.9144;
-            case '14':
-            return value * 0.3048;
-            case '15':
-            return value * 0.0254;
+                return value * 1609;
+            case 'a':
+                return value * 201;
+            case 'b':
+                return value * 5.829;
+            case 'c':
+                return value * 1.829;
+            case 'd':
+                return value * 0.9144;
+            case 'e':
+                return value * 0.3048;
+            case 'f':
+                return value * 0.0254;
             default:
-            return value * 1;
+                return value * 1;
         }
     }
-    public static int convertToFinal(char to, int value)
+    public static double convertToFinal(char to, double value)
     {
-        switch(to)
+        switch (to)
         {
             case '1':
-            return value * 1000;
+                return value / 1000;
             case '2':
-            return value * 100;
+                return value / 100;
             case '3':
-            return value * 10;
+                return value / 10;
             case '4':
-            return value * 1;
+                return value / 1;
             case '5':
-            return value * 0.1;
+                return value / 0.1;
             case '6':
-            return value * 0.01;
+                return value / 0.01;
             case '7':
-            return value * 0.001
+                return value / 0.001;
             case '8':
-            return value * 1852;
+                return value / 1852;
             case '9':
-            return value * 1609;
-            case '10':
-            return value * 201;
-            case '11':
-            return value * 5.829;
-            case '12':
-            return value * 1.829;
-            case '13':
-            return value * 0.9144;
-            case '14':
-            return value * 0.3048;
-            case '15':
-            return value * 0.0254;
+                return value / 1609;
+            case 'a':
+                return value / 201;
+            case 'b':
+                return value / 5.829;
+            case 'c':
+                return value / 1.829;
+            case 'd':
+                return value / 0.9144;
+            case 'e':
+                return value / 0.3048;
+            case 'f':
+                return value / 0.0254;
             default:
-            return value * 1;
+                return value / 1;
         }
     }
     public static void Main(string[] args)
     {
         string from;
-        int value;
+        double value;
         string to;
         System.Console.WriteLine("Select input unit");
         WriteUnits();
-        inp1 = Console.ReadLine();
+        from = Console.ReadLine();
         System.Console.WriteLine("Enter value for comversion");
-        value = Int32.Parse(Console.ReadLine());
+        value = double.Parse(Console.ReadLine());
         System.Console.WriteLine("Select output unit");
         WriteUnits();
         to = Console.ReadLine();
         System.Console.Write("Output:");
-        System.Console.WriteLine(convertToFinal(to[0], convertToIntermediate(from[0], value)););
+        System.Console.WriteLine(convertToFinal(to[0], convertToIntermediate(from[0], value)));
     }
 }
